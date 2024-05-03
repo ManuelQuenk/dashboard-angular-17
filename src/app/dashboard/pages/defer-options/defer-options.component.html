@@ -1,0 +1,93 @@
+<shared-title title="Defer Options View" />
+
+<section>
+  <h1 class="text-xl">Interacciones</h1>
+  <hr class="m-3">
+
+  @defer( on interaction ) {
+    <app-heavy-loaders-fast cssClass="bg-blue-600 text-white flex items-center justify-center h-16 w-full rounded">
+      <span>You've been hacked >:D</span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="bg-green-900 text-yellow-300 h-16 w-full flex items-center justify-center" >
+      <p>¡Click to open gift!</p>
+    </div>
+  }
+</section>
+
+<section>
+  <hr class="m-3">
+
+  <button
+   class="p-3 m-1 bg-green-900 hover:bg-green-700 transition-all rounded text-yellow-300 my-2"
+   #btnInteraction
+  >
+    Click me!
+  </button>
+
+  @defer( on interaction (btnInteraction) ) {
+    <app-heavy-loaders-fast cssClass="bg-blue-600 text-white flex items-center justify-center h-16 w-full rounded">
+      <span>You've been hacked >:D</span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="bg-green-900 text-yellow-300 h-16 w-full flex items-center justify-center rounded" >
+      <p>¡Click the button above to open gift!</p>
+    </div>
+  }
+</section>
+
+<section>
+  <hr class="m-3">
+
+  @defer( on hover ) {
+    <app-heavy-loaders-fast cssClass="bg-blue-600 text-white flex items-center justify-center h-16 w-full rounded">
+      <span>You've hovered >:D</span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="bg-green-900 text-yellow-300 h-16 w-full flex items-center justify-center rounded" >
+      <p>¡Click the button above to open gift!</p>
+    </div>
+  }
+</section>
+
+<section>
+  <hr class="m-3">
+
+  @defer( on immediate ) {
+    <app-heavy-loaders-fast cssClass="bg-blue-600 text-white flex items-center justify-center h-16 w-full rounded">
+      <span>You've been hacked immediately >:D</span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="bg-green-900 text-yellow-300 h-16 w-full flex items-center justify-center rounded" >
+      <p>¡Click the button above to open gift!</p>
+    </div>
+  }
+</section>
+
+<section>
+  <hr class="m-3">
+
+  @defer( on timer(1000) ) {
+    <app-heavy-loaders-fast cssClass="bg-blue-600 text-white flex items-center justify-center h-16 w-full rounded">
+      <span>You've been hacked in 1 second >:D</span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="bg-green-900 text-yellow-300 h-16 w-full flex items-center justify-center rounded" >
+      <p>¡ Hacking you !</p>
+    </div>
+  }
+</section>
+
+<section>
+  <hr class="m-3">
+
+  @defer( on hover; prefetch on idle ) {
+    <app-heavy-loaders-fast cssClass="bg-blue-600 text-white flex items-center justify-center h-16 w-full rounded">
+      <span>You've hovered or didnt do anything idk</span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="bg-green-900 text-yellow-300 h-16 w-full flex items-center justify-center rounded" >
+      <p>Hover here or wait and see</p>
+    </div>
+  }
+</section>

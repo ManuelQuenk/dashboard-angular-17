@@ -1,0 +1,68 @@
+<!-- <h1 class="text-3xl font-semibold mb-5 mx-5">Control flow</h1> -->
+<shared-title [title]="'Control Flow'" />
+
+<section class="grid grid-cols-1 md:grid-cols-2 gap-3">
+  <!-- ngIf @if -->
+
+  <div class="bg-white rounded shadow p-10">
+    <h2 class="text-2xl font-bold mb-2">if: {{ showContent() }}</h2>
+    <h2 class="text-2xl font-bold mb-2">Show password</h2>
+    <button
+      class="bg-blue-600 text-white p-2 rounded"
+      (click)="toggleContent()"
+    >
+      Click me!
+    </button>
+
+    @if ( showContent() ) {
+    <p>La leyenda del chupa chotas</p>
+    } @else {
+    <p class="font-extrabold">***************************</p>
+    }
+  </div>
+
+  <!-- @switch -->
+
+  <div class="bg-white rounded shadow p-10">
+
+    <h2 class="font-bold text-xl py-2 text-">Calificacion: {{ grade() }}</h2>
+
+    @switch ( grade() ) {
+      @case ('A') {
+        <p class="text-green-700 text-xl font-semibold">Calificacion por encima del 90%</p>
+      }
+      @case ('B') {
+        <p class="text-blue-700 text-xl font-semibold">Calificacion por encima del 70%</p>
+      }
+      @default {
+        <p class="text-red-700 text-xl font-semibold">Reprobado</p>
+      }
+    }
+
+  </div>
+
+  <!-- @for  -->
+  <div class="bg-white rounded shadow p-10">
+    <ul>
+      @for (framework of frameworks(); track frameworks; let i = $index, count = $count, even = $even ) {
+          <li [class]="{
+            'bg-blue-200': even
+          }">
+             {{i+1}}/{{count}}- {{framework}}
+          </li>
+        }
+    </ul>
+  </div>
+
+  <div class="bg-white rounded shadow p-10">
+    <ul>
+      @for (framework of frameworks2(); track $index) {
+          <li> {{framework}} </li>
+        } @empty {
+          <li>No hay frameworks registrados</li>
+        }
+    </ul>
+  </div>
+
+
+</section>
